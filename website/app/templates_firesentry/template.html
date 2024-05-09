@@ -1,0 +1,589 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<!--    <title>Vanilla Bootstrap v4.2.1 Theme</title>-->
+    <meta name="description" content="">
+    <link rel="icon" type="image/png" href="{% static 'img/favico.ico' %}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/fontAwesome.css' %}">
+    <link rel="stylesheet" href="{% static 'css/hero-slider.css' %}">
+    <link rel="stylesheet" href="{% static 'css/templatemo-main.css' %}">
+    <link rel="stylesheet" href="{% static 'css/owl-carousel.css' %}">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+
+    <!-- <script src="{% static 'js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script> -->
+    <title>Fire Sentry - Wildfire Prediction</title>
+</head>
+<body>
+<div class="fixed-side-navbar">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="nav-link" href="#home"><span>Intro</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#model"><span>The Model</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#predict"><span>Predict</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#data"><span>Data</span></a></li>
+            <li class="nav-item"><a class="nav-link" href="#wildfires"><span>Current Wildfires</span></a></li>
+        </ul>
+    </div>
+
+<div class="parallax-content baner-content" id="home">
+        <div class="container">
+            <div class="first-content">
+                <h1>Fire Sentry</h1>
+                <span class="auto-type"></span>
+                <div class="primary-button">
+                    <a href="#model">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script>
+        var typed = new Typed(".auto-type", {
+            strings: ["", "A <em>Wildfire</em> Prediction System"],
+            typeSpeed: 40,
+            backSpeed: 40,
+            loop: false,
+            onComplete: function() {
+                //bold the word Wildfire
+                // setTimeout(function() {
+                //     document.querySelector(".auto-type").innerHTML = document.querySelector(".auto-type").innerHTML.replace("Wildfire", "<em>Wildfire</em>");
+                // }, 100);
+                // console.log("Typing animation complete");
+            }
+        });
+    </script>
+
+
+    <div class="service-content" id="model">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="left-text">
+                        <h4><b>How its Done</b></h4>
+                        <div class="line-dec"></div>
+                        <p>Using Multi Layer Perceptron (MLP) and Random Tree Classifier machine learning models, we were able to predict the
+                        occurrence of wildfires across the United States. Find the data used for training and testing <b><a target="_blank" href="https://github.com/ouladsayadyounes/WildFires">here</a>!</b></p>
+                        <ul>
+                            <li>-  Approximately ~90% accuracy</li>
+                            <li>-  Low request latency</li>
+                            <li>-  Very low False Negative rate</li>
+                            <li>-  Integrated map feature Coming Soon!</li>
+                        </ul>
+                        <div class="primary-button">
+                            <a href="#predict">Go to predictor</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Approximately</h4>
+                                <div class="line-dec"></div>
+                                <br>
+                                <b><p class = "number-counter" style="font-size:70px;">70,000</p></b>
+                                <br>
+                                <div class="line-dec"></div>
+                                <h4>Wildfires Per Year</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Over</h4>
+                                <div class="line-dec"></div>
+                                <br>
+                                <b><p style="font-size:50px;">8 Million</p></b>
+                                <br>
+                                <div class="line-dec"></div>
+                                <h4>Acres Burned Annually</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Wildfires Totalled</h4>
+                                <div class="line-dec"></div>
+                                <br>
+                                <b><p style="font-size:70px;">$11.2</p></b>
+                                <br>
+                                <div class="line-dec"></div>
+                                <h4>Billion Of Loss in 2022</h4>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="service-item">
+                                <h4>Humans Cause</h4>
+                                <div class="line-dec"></div>
+                                <br>
+                                <b><p style="font-size:70px;">85%</p></b>
+                                <br>
+                                <div class="line-dec"></div>
+                                <h4>Of All Wildfires</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div class="parallax-content contact-content" id="predict">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <div class="row">
+                            <form id="contact" action="" method="post">
+                                <div class="row">
+                                    <div class="thingmabob">
+                                        <h4><b>Predict Wildfires At Any US Location!</b></h4>
+                                    </div>
+                                    <div class="col-md-12" style="padding-bottom: 5px">
+                                      <fieldset style="padding-bottom: 5px">
+                                        {% csrf_token %}
+<!--                                        <label for="autocomplete">Enter your address:</label>-->
+                                        <input id="autocomplete" class="form-control" type="text" placeholder="Enter your address:" onchange="setthing()"/>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-12 or" style="padding-bottom: 5px">
+                                      <fieldset style="padding-bottom: 5px">
+                                        <h1><b>OR</b></h1>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <fieldset>
+<!--                                        <label for="Latitude">Latitude:</label>-->
+                                        <input id="Latitude" class="form-control" type="text" placeholder="Latitude:" onchange="setthing()"/>
+<!--                                        <label for="Longitude">Longitude:</label>-->
+                                        <input id="Longitude" class="form-control" type="text" placeholder="Longitude:" onchange="setthing()"/>
+                                      </fieldset>
+                                    </div>
+                                    <div class="col-md-12">
+                                      <fieldset>
+                                        <button class="btn btn-primary" type="button" onclick="find()" id="but">Predict Now</button>
+                                          <p id="result" temp="{% url 'predict' %}"></p>
+                                      </fieldset>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="map" >
+                    <div class="thingmabob">
+                        <h4><b id="predicty" style="color: #ff7d27">Result Appears Here</b></h4>
+                    </div>
+                    <!-- How to change your own map point
+                           1. Go to Google Maps
+                           2. Click on your location point
+                           3. Click "Share" and choose "Embed map" tab
+                           4. Copy only URL and paste it within the src="" field below
+                    -->
+
+                        <img id="image" src="https://maps.googleapis.com/maps/api/staticmap?center=37.09024,-95.712891&zoom=4&size=640x467&maptype=satellite&key=AIzaSyBH4E8ag-11Ab5o8IezWQ908NdR8L_adLA" height="382px">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="tabs-content" id="data">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="wrapper">
+                    <section id="first-tab-group" class="tabgroup">
+                      <div id="tab1">
+                          <p><img src="{% static 'img/ndvi.png' %}" alt="" style="opacity: .75;" height="250px"><br>
+                          It can be seen that the NDVI values for training range from 0 to 1 and are normalized. This normalization enables fair comparison between different datasets and prevents the influence of extreme values, simplifying the training process by making the input data consistent and easier to work with.
+                          </p>
+                      </div>
+                      <div id="tab2">
+                          <p><img src="{% static 'img/lst.png' %}" alt=""  style="opacity: .75;" height="250px"><br>LST stands for Land Surface Temperature. Our LST values for training range from 12000 to 16000 and are normalized, which means that the data is standardized to a common scale, making it easier for machine learning models to learn from and make accurate wildfire predictions.</p>
+                      </div>
+                      <div id="tab3">
+                          <p><img src="{% static 'img/ta.png' %}" alt=""  style="opacity: .75;" height="250px"><br>Our Thermal Anomaly (TA) values for training range from 3 to 5 and are right skewed, likely due to the fact that most areas do not have thermal anomalies, and this distribution may affect the performance of our model by overemphasizing the importance of areas with thermal anomalies and underemphasizing areas without them. Proper handling of this skewness is necessary for a balanced and accurate wildfire prediction model.</p>
+                      </div>
+                      <div id="tab4">
+                          <p><img src="{% static 'img/model_accuracy.png' %}" alt=""  style="opacity: .75;" height="250px"><br>Based on the graph above, it is apparent that the random forest classification model achieves the highest accuracy with 90% training data. Therefore, we can conclude that using 90% of the available training data is the best option for this model.</p>
+                      </div>
+                    </section>
+                    <ul class="tabs clearfix" data-tabgroup="first-tab-group">
+                      <li><a href="#tab1" class="active">NDVI</a></li>
+                      <li><a href="#tab2">LST</a></li>
+                      <li><a href="#tab3">TA</a></li>
+                      <li><a href="#tab4">Model Accuracy</a></li>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-content projects-content" id="wildfires">
+        <div class="container">
+            <h1 style="color: #da5700; text-align: center; padding:10px; background-color: rgba(0, 0, 0, 0.25); border-radius: 15px;"><b>Past and Current Wildfires</b></h1>
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="owl-testimonials" class="owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/1st-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Solar Park Fire, Texas</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 2,816 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> Still Unknown</span></p>
+                                    <p><span style="color: darkred"><b>Status:</b> Active</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/2nd-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Dixie Fire, California</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 463,000 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> $637 million</span></p>
+                                    <p><span style="color: green"><b>Status:</b> Out</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/3rd-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Squirrel Tree Fire, Arkansas</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 700 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> Still Unknown</span></p>
+                                    <p><span style="color: darkgoldenrod"><b>Status:</b> Contained</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/4th-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Storm Fire, Oklahoma</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 519 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> Still Unknown</span></p>
+                                    <p><span style="color: darkred"><b>Status:</b> Active</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/5th-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Mosquito Fire, California</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 76,788 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> $100 million</span></p>
+                                    <p><span style="color: green"><b>Status:</b> Out</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/6th-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Fort Lyon Fire, Colorado</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 2,926 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> Unknown </span></p> 
+                                    <p><span style="color: green"><b>Status:</b> Out</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/2nd-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Thorn Springs Fire, Idaho</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 0.1 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> Still Unknown </span></p>
+                                    <p><span style="color: darkred"><b>Status:</b> Active</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimonials-item">
+                                <a href="img/1st-big-item.jpg" data-lightbox="image-1"></a>
+                                <div class="text-content">
+                                    <h4 style="color: #ff7d27">Peshtigo Fire, Wisconsin</h4>
+                                    <br>
+                                    <p><span style="color: black"><b>Damage Area:</b> 1,291,299 acres</span></p>
+                                    <p><span style="color: black"><b>Total Damages:</b> $169 million </span></p>
+                                    <p><span style="color: green"><b>Status:</b> Out</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script>window.jQuery || document.write('<script src="{% static "js/vendor/jquery-1.11.2.min.js" %}"><\/script>')</script>
+    <script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/plugins.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <script>
+        function openCity(cityName) {
+            var i;
+            var x = document.getElementsByClassName("city");
+            for (i = 0; i < x.length; i++) {
+               x[i].style.display = "none";
+            }
+            document.getElementById(cityName).style.display = "block";
+        }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+          // Add smooth scrolling to all links
+          $(".fixed-side-navbar a, .primary-button a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: $(hash).offset().top
+              }, 800, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+        });
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBH4E8ag-11Ab5o8IezWQ908NdR8L_adLA&libraries=places"></script>
+
+<script src="{% static 'js/prediction.js' %}"></script>
+<script>
+       // Initialize the autocomplete object
+        var autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById("autocomplete")
+        );
+
+          function find() {
+              if (document.getElementById("autocomplete").value !== ""){
+                  getInputValue();
+              } else {
+                  getCoordinates();
+              }
+          }
+        function getInputValue() {
+            // Get the value of the autocomplete input element
+            var address = document.getElementById("autocomplete").value;
+            // console.log("Input Value: " + address);
+            var coord_ns = 0;
+            var coord_ew = 0;
+            // Use the Geocoding API to convert the address to coordinates
+            var geocodingApiUrl = "https://maps.googleapis.com/maps/api/geocode/json?address=";
+            var address = address;
+            var apiKey = "AIzaSyBH4E8ag-11Ab5o8IezWQ908NdR8L_adLA";
+
+            // Create a URL for the Geocoding API with the address and API key
+            var requestUrl = geocodingApiUrl + encodeURIComponent(address) + "&key=" + apiKey;
+
+            // Make a request to the Geocoding API using XMLHttpRequest
+            var request = new XMLHttpRequest();
+            request.open("GET", requestUrl);
+            request.responseType = "json";
+            request.send();
+
+            // Handle the response from the Geocoding API
+            request.onload = function() {
+            var response = request.response;
+
+            // Check if the Geocoding API returned a valid response
+            if (response.status === "OK") {
+                // Get the coordinates from the response
+                var location = response.results[0].geometry.location;
+                var latitude = location.lat;
+                var longitude = location.lng;
+                coord_ns = latitude;
+                coord_ew = longitude;
+
+                // Do something with the coordinates, like display them on a map
+                // console.log("Latitude: " + latitude + ", Longitude: " + longitude);
+            } else {
+                document.getElementById('but').innerHTML = "<em style='color: #930e0e;'>Geocoding Failed</em> - Please Try Again"
+                // console.log("Geocoding failed with status: " + response.status);
+            }
+            // preventing from page reload and default actions
+            // e.preventDefault();
+            // serialize the data for sending the form data.
+            // make POST ajax call
+            // if (coord_ns == "" || coord_ew == "") {
+            //     // console.log("Please enter coordinates");
+            // }
+            if(is_in_us(latitude, longitude)){
+                // console.log(document.querySelector('input[name="csrfmiddlewaretoken"]').value);
+                ajax_requet(coord_ns, coord_ew);
+            }
+            else{
+                // console.log("Coordinates are not in US");
+
+                document.getElementById('but').innerHTML = "<em style='color: #930e0e;'>Location Not In USA</em> - Please Try Again"
+            }
+
+
+            };
+        }
+        function getCoordinates() {
+            var coord_ns = document.getElementById("Latitude").value;
+            var coord_ew = document.getElementById("Longitude").value;
+            if (coord_ns == "" || coord_ew == "") {
+
+                document.getElementById('but').innerHTML = "<em style='color: #930e0e;'>Please Enter Location</em> - Please Try Again"
+            } else {
+                //check if coordinates are in US
+                var latitude = coord_ns;
+                var longitude = coord_ew;
+                if (is_in_us(latitude, longitude)) {
+                    ajax_requet(latitude, longitude);
+                } else {
+                    document.getElementById('but').innerHTML = "<em style='color: #930e0e;'>Location Not In USA</em> - Please Try Again"
+                }
+            }
+
+
+        }
+        function ajax_requet(coord_ns, coord_ew){
+            $.ajax({
+                type: 'POST',
+                url: "{% url 'predict' %}",
+                data: {coord_ns: coord_ns, coord_ew: coord_ew, csrfmiddlewaretoken: '{{ csrf_token }}'},
+                success: function (response) {
+                    // on successfull creating object
+                    // 1. clear the form.
+                    // document.getElementById("autocomplete").trigger('reset');
+                    // document.getElementById("Latitude").trigger('reset');
+                    // document.getElementById("Longitude").trigger('reset');
+                    // 2. focus to nickname input
+                    // $("#id_nick_name").focus();
+
+                    // display the newly friend to table.
+                    var prediction = JSON.parse(response["prediction"]);
+                    // document.getElementById("result").innerHTML = prediction;
+
+                    const latitude = coord_ns; // replace with the latitude of the coordinate
+                    const longitude = coord_ew; // replace with the longitude of the coordinate
+                    const apiKey = 'AIzaSyBH4E8ag-11Ab5o8IezWQ908NdR8L_adLA'; // replace with your Google Earth Engine API key
+
+                    // const apiKey = "YOUR_API_KEY"; // replace with your Google API key
+
+                    const mapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=14&size=640x467&maptype=satellite&key=${apiKey}`;
+
+
+                    document.getElementById('image').src = mapUrl;
+                    document.getElementById("predicty").innerText = (prediction * 100).toFixed(2) + "% chance of Wildfire";
+
+                    document.getElementById("but").innerText = "Predict Now";
+                    document.getElementById("but").disabled = false;
+
+
+                },
+                error: function (response) {
+                    // alert the error if any error occured
+                    document.getElementById("result").innerHTML = "Error Occurred, please try again";
+                }
+                });
+
+                document.getElementById("but").innerText = "Loading, Please Wait";
+                document.getElementById("but").disabled = true;
+
+        }
+        function is_in_us(lat, lng) {
+  // Define the API endpoint and parameters
+            const endpoint = 'https://maps.googleapis.com/maps/api/geocode/json';
+            const params = {
+                latlng: `${lat},${lng}`,
+                key: 'AIzaSyBH4E8ag-11Ab5o8IezWQ908NdR8L_adLA',
+                result_type: 'country'
+            };
+
+            // Send a synchronous request to the API endpoint and parse the response
+            const xhr = new XMLHttpRequest();
+            xhr.open('GET', `${endpoint}?${new URLSearchParams(params)}`, false);
+            xhr.send();
+            const data = JSON.parse(xhr.responseText);
+            const country = data.results[0].address_components[0].short_name;
+
+            // Check if the country is the United States
+            if (country === 'US') {
+                return true;
+            } else {
+                document.getElementById('but').innerHTML = "<em style='color: #930e0e;'>Location Not In USA</em> - Please Try Again"
+                return false;
+            }
+        }
+
+
+        function setthing() {
+              document.getElementById("but").innerText = "Predict Now";
+        }
+</script>
+
+<script>
+    var counter = document.querySelector('.number-counter');
+    var start = 0;
+    var end = 70000;
+    var duration = 2000;
+    var range = end - start;
+    var current = start;
+    var increment = 67;
+    var step = Math.abs(Math.floor(duration / range));
+    var counterExecuted = false;
+
+    var options = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0
+    }
+
+    var observer = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !counterExecuted) {
+        counterExecuted = true;
+        var timer = setInterval(function() {
+            current += increment;
+            counter.innerHTML = current.toLocaleString();
+            if (current >= end) {
+            counter.innerHTML = end.toLocaleString();
+            clearInterval(timer);
+            }
+        }, step);
+        counter.style.opacity = 1;
+        counter.style.transform = 'translateY(0)';
+        }
+    });
+    }, options);
+
+    observer.observe(counter);
+
+</script>
+</body>
+</html>
