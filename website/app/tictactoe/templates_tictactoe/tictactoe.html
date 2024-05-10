@@ -1,0 +1,296 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+    <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+    <style>
+        @media (prefers-color-scheme: light) {
+                /* style button */
+                button {
+                    background-color: #4CAF50;
+                    border: 4px solid black;
+                    border-radius: 12px;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;
+                    margin: 4px 2px;
+                    cursor: pointer;
+                    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+                }
+                /* style div */
+                .message-wrapper{
+                    text-align: center;
+                    margin: 0 auto;
+                    width: 100%;
+                    text-align: center;
+                    font-size: 20px;
+                    font-weight: bold;
+                    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+                }
+                p{
+                    color: black;
+                    font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+                }
+        }
+
+        @media (prefers-color-scheme: dark) {
+            button{
+                background-color: #4CAF50;
+                border: 4px solid lightslategray;
+                border-radius: 12px;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+                font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+            }
+            .message-wrapper{
+                text-align: center;
+                margin: 0 auto;
+                width: 100%;
+                text-align: center;
+                font-size: 20px;
+                font-weight: bold;
+                font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+                color: white;
+            }
+            /* style background */
+            body{
+                background-color: black;
+            }
+            /* style rectangle border */
+            rect{
+                stroke: lightslategray;
+            }
+            p{
+                color: white;
+                font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- create a div with an svg with 9 squares inside -->
+    <div class = "svg-wrapper">
+        <svg id="gameboard" viewbox="0 0 90 90" xmlns="http://www.w3.org/2000/svg">
+            <rect id="r_00" width="30" height="30" style="fill-opacity: 0.1;" fill="white" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_01" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(0,30)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_02" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(0,60)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_10" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(30,0)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_11" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(30,30)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_12" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(30,60)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_20" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(60,0)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_21" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(60,30)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <rect id="r_22" width="30" height="30" style="fill-opacity: 0.1;" fill="white" transform="translate(60,60)" stroke = "black" stroke-width = "4.1" rx="5"/>
+            <!-- Create X using lines centered within each rect and has a corresponding id -->
+            <line id="x_000" x1="5" y1="5" x2="25" y2="25" stroke="red" stroke-width="0"/>
+            <line id="x_001" x1="5" y1="25" x2="25" y2="5" stroke="red" stroke-width="0"/>
+            <line id="x_100" x1="35" y1="5" x2="55" y2="25" stroke="red" stroke-width="0" />
+            <line id="x_101" x1="35" y1="25" x2="55" y2="5" stroke="red" stroke-width="0" />
+            <line id="x_200" x1="65" y1="5" x2="85" y2="25" stroke="red" stroke-width="0" />
+            <line id="x_201" x1="65" y1="25" x2="85" y2="5" stroke="red" stroke-width="0"/>
+            <line id="x_010" x1="5" y1="35" x2="25" y2="55" stroke="red" stroke-width="0"/>
+            <line id="x_011" x1="5" y1="55" x2="25" y2="35" stroke="red" stroke-width="0"/>
+            <line id="x_110" x1="35" y1="35" x2="55" y2="55" stroke="red" stroke-width="0"/>
+            <line id="x_111" x1="35" y1="55" x2="55" y2="35" stroke="red" stroke-width="0"/>
+            <line id="x_210" x1="65" y1="35" x2="85" y2="55" stroke="red" stroke-width="0"/>
+            <line id="x_211" x1="65" y1="55" x2="85" y2="35" stroke="red" stroke-width="0"/>
+            <line id="x_020" x1="5" y1="65" x2="25" y2="85" stroke="red" stroke-width="0"/>
+            <line id="x_021" x1="5" y1="85" x2="25" y2="65" stroke="red" stroke-width="0"/>
+            <line id="x_120" x1="35" y1="65" x2="55" y2="85" stroke="red" stroke-width="0"/>
+            <line id="x_121" x1="35" y1="85" x2="55" y2="65" stroke="red" stroke-width="0"/>
+            <line id="x_220" x1="65" y1="65" x2="85" y2="85" stroke="red" stroke-width="0"/>
+            <line id="x_221" x1="65" y1="85" x2="85" y2="65" stroke="red" stroke-width="0"/>
+            <!-- Create O using circles centered within each rect and has a corresponding id -->
+            <circle id="o_00" cx="15" cy="15" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_01" cx="15" cy="45" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_02" cx="15" cy="75" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_10" cx="45" cy="15" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_11" cx="45" cy="45" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_12" cx="45" cy="75" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_20" cx="75" cy="15" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_21" cx="75" cy="45" r="10" stroke="blue" stroke-width="0" fill="none" />
+            <circle id="o_22" cx="75" cy="75" r="10" stroke="blue" stroke-width="0" fill="none" />
+        </svg>
+    </div>
+    <!-- create a div with a button to start the game -->
+    <div class = "button-wrapper">
+        <button id="start">Reset</button>
+    </div>
+    <!-- create a div with a message to display the winner -->
+    <div class = "message-wrapper">
+        <p id="message"></p>
+    </div>
+    <div class = "wins">
+        <p id="xwin">X Wins: 0</p>
+        <p id="owin">O Wins: 0</p>
+    </div>
+    <!-- Game Logic Script-->
+    <script>
+        // create a object to hold the game state
+    let state = {
+        board: [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ],
+        turn: 'X',
+        winner: null,
+        message: null
+    };
+    countxwin = 0;
+    countowin = 0;
+    document.getElementById('start').addEventListener('click', startGame);
+    // create a function to start the game
+    function startGame() {
+        state.board = [
+            [null, null, null],
+            [null, null, null],
+            [null, null, null]
+        ];
+        state.turn = 'X';
+        state.winner = null;
+        state.message = null;
+        displayBoard();
+    }
+    document.querySelector('#gameboard').addEventListener('click', (e) => {
+        let row = e.target.id[2] % 3;
+        let col = e.target.id[3] % 3;
+        console.log(row, col);
+        if (state.board[row][col] === null && state.winner === null) {
+            state.board[row][col] = state.turn;
+            displayBoard();
+            console.log(state.board);
+            checkForWinner();
+            if (state.winner === null && checkForTie()) {
+                state.winner = 'T';
+            }
+            state.turn = state.turn === 'X' ? 'O' : 'X';
+        }
+        message = '';
+        if(state.winner !== null) {
+            message = state.winner === 'T' ? 'Tie Game' : state.winner + ' Wins!';
+            if (state.winner === 'X') {
+                countxwin++;
+                document.getElementById('xwin').innerHTML = 'X Wins: ' + countxwin;
+            } else if (state.winner === 'O') {
+                countowin++;
+                document.getElementById('owin').innerHTML = 'O Wins: ' + countowin;
+            }
+            if (state.winner !== 'T') {
+                js_plot = pyscript.runtime.globals.get('plot');
+                // clear the div graph-area
+                document.getElementById('graph-area').innerHTML = '';
+                js_plot(countowin, countxwin);
+            }
+        }
+        document.getElementById('message').innerHTML = message;
+    });
+    // create a function to display the board
+    function displayBoard() {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (state.board[i][j] === 'X') {
+                    document.getElementById(`r_${i}${j}`).setAttribute('fill', 'red');
+                    document.getElementById(`r_${i}${j}`).setAttribute('cursor', 'not-allowed');
+                    document.getElementById(`r_${i}${j}`).setAttribute('style', 'fill-opacity: 0.1');
+                    document.getElementById(`x_${i}${j}0`).setAttribute('stroke-width', '2');
+                    document.getElementById(`x_${i}${j}0`).setAttribute('cursor', 'not-allowed');
+                    document.getElementById(`x_${i}${j}1`).setAttribute('cursor', 'not-allowed');
+                    document.getElementById(`x_${i}${j}1`).setAttribute('stroke-width', '2');
+                } else if (state.board[i][j] === 'O') {
+                    document.getElementById(`r_${i}${j}`).setAttribute('fill', 'blue'); 
+                    document.getElementById(`r_${i}${j}`).setAttribute('cursor', 'not-allowed');
+                    document.getElementById(`r_${i}${j}`).setAttribute('style', 'fill-opacity: 0.1');
+                    document.getElementById(`o_${i}${j}`).setAttribute('stroke-width', '2');
+                    document.getElementById(`o_${i}${j}`).setAttribute('cursor', 'not-allowed');
+                } else {
+                    document.getElementById(`r_${i}${j}`).setAttribute('fill', 'white');
+                    document.getElementById(`r_${i}${j}`).setAttribute('style', 'fill-opacity: 0.1');
+                    document.getElementById(`r_${i}${j}`).setAttribute('cursor', 'default');
+                    document.getElementById(`x_${i}${j}0`).setAttribute('stroke-width', '0');
+                    document.getElementById(`x_${i}${j}1`).setAttribute('stroke-width', '0');
+                    document.getElementById(`x_${i}${j}0`).setAttribute('cursor', 'default');
+                    document.getElementById(`x_${i}${j}1`).setAttribute('cursor', 'default');
+                    document.getElementById(`o_${i}${j}`).setAttribute('stroke-width', '0');
+                    document.getElementById(`o_${i}${j}`).setAttribute('cursor', 'default');
+                }
+            }
+        }
+        document.getElementById('message').innerHTML = '';
+    }
+    // create a function to check for a winner
+    function checkForWinner() {
+        // check rows
+        for (let i = 0; i < 3; i++) {
+            if (state.board[i][0] !== null &&
+                state.board[i][0] === state.board[i][1] &&
+                state.board[i][1] === state.board[i][2]) {
+                state.winner = state.board[i][0];
+            }
+        }
+        // check columns
+        for (let i = 0; i < 3; i++) {
+            if (state.board[0][i] !== null &&
+                state.board[0][i] === state.board[1][i] &&
+                state.board[1][i] === state.board[2][i]) {
+                state.winner = state.board[0][i];
+            }
+        }
+        // check diagonals
+        if (state.board[0][0] !== null &&
+            state.board[0][0] === state.board[1][1] &&
+            state.board[1][1] === state.board[2][2]) {
+            state.winner = state.board[0][0];
+        }
+        if (state.board[2][0] !== null &&
+            state.board[2][0] === state.board[1][1] &&
+            state.board[1][1] === state.board[0][2]) {
+            state.winner = state.board[2][0];
+        }
+    }
+    // create a function to check for a tie
+    function checkForTie() {
+        for (let i = 0; i < 3; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (state.board[i][j] === null) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+    </script>
+    <py-config>
+        packages = ["matplotlib", "pandas"]
+    </py-config>
+    <py-script>
+        import matplotlib.pyplot as plt
+        def plot(countowin, countxwin):
+            fig, ax = plt.subplots()
+            player = ['O', 'X']
+            wins = [countowin, countxwin]
+            bar_colors = ['tab:blue', 'tab:red']
+            ax.bar(player,wins, color=bar_colors)
+            js.console.log('plot')
+            js.console.log(countxwin)
+            js.console.log(countowin)
+            js.console.log('plot')
+            plt.show()
+            display(fig, target="graph-area")
+    </py-script>
+    <div id="graph-area"></div>
+</body>
+</html>
