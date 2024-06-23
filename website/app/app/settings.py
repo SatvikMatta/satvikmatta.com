@@ -25,9 +25,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+# DEBUG = True
 
-ALLOWED_HOSTS = ['satvikmatta.com', 'www.satvikmatta.com']
+ALLOWED_HOSTS = ['satvikmatta.com', 'www.satvikmatta.com', '.fourth-physics-422720-p2.uk.r.appspot.com', '.satvikmatta.com']
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -168,6 +169,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / "static",
     BASE_DIR / "main/static",
+    BASE_DIR / "static_fire",
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
