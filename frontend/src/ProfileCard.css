@@ -1,0 +1,357 @@
+/* ProfileCard.css - ReactBits Profile Card Component */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --card-opacity: 0.95;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.pc-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  font-family: 'Inter', sans-serif;
+  color: #ffffff;
+  z-index: 1;
+  user-select: none;
+}
+
+.pc-card {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+.pc-card:hover {
+  transform: scale(1.02);
+}
+
+.pc-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--behind-gradient);
+  z-index: 1;
+  border-radius: 20px;
+  transition: all 0.6s ease;
+}
+
+.pc-card.active::before {
+  background: var(--behind-gradient);
+  opacity: var(--card-opacity);
+}
+
+.pc-inside {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  border-radius: 18px;
+  background: var(--inner-gradient);
+  z-index: 2;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pc-shine {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(255, 255, 255, 0.05) 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.05) 75%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+  z-index: 3;
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+
+.pc-card:hover .pc-shine {
+  opacity: 1;
+}
+
+.pc-glare {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at var(--pointer-x) var(--pointer-y),
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 20%,
+    transparent 40%
+  );
+  z-index: 4;
+  transition: all 0.3s ease;
+  opacity: 0;
+}
+
+.pc-card.active .pc-glare {
+  opacity: 1;
+}
+
+.pc-content {
+  position: relative;
+  z-index: 5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 30px;
+}
+
+.pc-avatar-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.pc-card:hover .avatar {
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: scale(1.05);
+}
+
+.pc-user-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.pc-user-details {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pc-mini-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.pc-mini-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.pc-user-text {
+  flex: 1;
+  text-align: left;
+}
+
+.pc-handle {
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2px;
+}
+
+.pc-status {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 400;
+}
+
+.pc-contact-btn {
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
+  color: white;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  white-space: nowrap;
+}
+
+.pc-contact-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.pc-details {
+  margin-top: auto;
+  text-align: center;
+}
+
+.pc-details h3 {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: white;
+}
+
+.pc-details p {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .pc-card-wrapper {
+    max-width: 350px;
+  }
+  
+  .pc-card {
+    height: 550px;
+  }
+  
+  .pc-content {
+    padding: 25px;
+  }
+  
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .pc-details h3 {
+    font-size: 20px;
+  }
+  
+  .pc-details p {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .pc-card-wrapper {
+    max-width: 300px;
+  }
+  
+  .pc-card {
+    height: 500px;
+  }
+  
+  .pc-content {
+    padding: 20px;
+  }
+  
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .pc-user-details {
+    gap: 10px;
+  }
+  
+  .pc-mini-avatar {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .pc-details h3 {
+    font-size: 18px;
+  }
+  
+  .pc-details p {
+    font-size: 12px;
+  }
+}
+
+/* Animation improvements */
+.pc-card-wrapper {
+  animation: slideInUp 0.8s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Tilt animation styles */
+.pc-card {
+  transform: rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg));
+  transition: transform 0.6s ease;
+}
+
+.pc-card.active {
+  transition: transform 0.1s ease;
+}
+
+/* Holographic effect */
+.pc-inside::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    var(--background-x, 50%) var(--background-y, 50%),
+    rgba(255, 255, 255, 0.1) 0%,
+    transparent 50%
+  );
+  z-index: 1;
+  opacity: calc(var(--pointer-from-center, 0) * 0.5);
+  transition: opacity 0.3s ease;
+}
+
+/* Grain texture overlay */
+.pc-inside::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: var(--grain);
+  opacity: 0.1;
+  z-index: 6;
+  pointer-events: none;
+}
