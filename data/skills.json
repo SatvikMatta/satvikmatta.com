@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Python",
+    "level": "expert",
+    "category": "Programming"
+  },
+  {
+    "id": 2,
+    "name": "Java",
+    "level": "advanced",
+    "category": "Programming"
+  },
+  {
+    "id": 3,
+    "name": "C",
+    "level": "advanced",
+    "category": "Programming"
+  },
+  {
+    "id": 4,
+    "name": "C++",
+    "level": "advanced",
+    "category": "Programming"
+  },
+  {
+    "id": 5,
+    "name": "Verilog",
+    "level": "intermediate",
+    "category": "Programming"
+  },
+  {
+    "id": 6,
+    "name": "MIPS",
+    "level": "intermediate",
+    "category": "Programming"
+  },
+  {
+    "id": 7,
+    "name": "Google Cloud Platform",
+    "level": "intermediate",
+    "category": "Cloud"
+  },
+  {
+    "id": 8,
+    "name": "PyTorch",
+    "level": "intermediate",
+    "category": "Machine Learning"
+  }
+]

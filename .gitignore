@@ -140,3 +140,6 @@ add_linkedin_experience.py
 add_linkedin_missing.py
 fetch_linkedin.py
 read_resume.py
+
+app.yaml
+deploy.sh

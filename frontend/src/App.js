@@ -14,16 +14,40 @@ function App() {
 
   const fetchData = async () => {
     try {
-      const [projectsRes, skillsRes, experienceRes] = await Promise.all([
-        fetch('http://localhost:8000/api/projects/'),
-        fetch('http://localhost:8000/api/skills/'),
-        fetch('http://localhost:8000/api/experience/')
-      ]);
+      const PRIMARY_API_URL = process.env.NODE_ENV === 'production' 
+        ? 'https://www.satvikmatta.com/api' 
+        : 'http://localhost:8000/api';
+      
+      
+      const FALLBACK_API_URL = 'https://fourth-physics-422720-p2.uk.r.appspot.com/api';
+
+      const fetchWithFallback = async (endpoint) => {
+        try {
+          // Create a timeout promise
+          const timeoutPromise = new Promise((_, reject) =>
+            setTimeout(() => reject(new Error('Request timeout')), 3000)
+          );
+
+          // Try primary API first with 3-second timeout
+          const response = await Promise.race([
+            fetch(`${PRIMARY_API_URL}${endpoint}`),
+            timeoutPromise
+          ]);
+          
+          const data = await response.json();
+          return data;
+        } catch (error) {
+          console.log(`Primary API failed or timed out for ${endpoint}, trying fallback...`);
+          // If primary fails or times out, try fallback
+          const fallbackResponse = await fetch(`${FALLBACK_API_URL}${endpoint}`);
+          return await fallbackResponse.json();
+        }
+      };
 
       const [projectsData, skillsData, experienceData] = await Promise.all([
-        projectsRes.json(),
-        skillsRes.json(),
-        experienceRes.json()
+        fetchWithFallback('/projects/'),
+        fetchWithFallback('/skills/'),
+        fetchWithFallback('/experience/')
       ]);
 
       setProjects(projectsData);
@@ -31,7 +55,7 @@ function App() {
       setExperience(experienceData);
       setIsLoading(false);
     } catch (error) {
-      console.error('Error fetching data:', error);
+      console.error('Error fetching data from both APIs:', error);
       setIsLoading(false);
     }
   };
@@ -270,7 +294,7 @@ function App() {
                           {skill.name === 'C' && <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" />}
                           {skill.name === 'C++' && <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" />}
                           {skill.name === 'Verilog' && <img src="https://www.svgrepo.com/show/374163/verilog.svg" alt="Verilog" />}
-                          {skill.name === 'MIPS' && <img src="/MIPS.png" alt="MIPS" />}
+                          {skill.name === 'MIPS' && <img src="/static/MIPS.png" alt="MIPS" />}
                           {skill.name === 'Google Cloud Platform' && <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" />}
                           {skill.name === 'PyTorch' && <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" />}
                           {!['Python', 'Java', 'C', 'C++', 'Verilog', 'MIPS', 'Google Cloud Platform', 'PyTorch'].includes(skill.name) && 
@@ -359,13 +383,13 @@ function App() {
                 <div className="project-image">
                   {project.title.includes('TriCen') ? (
                     <img 
-                      src="/TriCen.png" 
+                      src="/static/TriCen.png" 
                       alt="TriCen AI Mental Health Crisis Response System"
                       className="project-img"
                     />
                   ) : project.title.includes('Fire Sentry') ? (
                     <img 
-                      src="/Fire_Sentry.jpg" 
+                      src="/static/Fire_Sentry.jpg" 
                       alt="Fire Sentry Wildfire Prediction System"
                       className="project-img"
                     />

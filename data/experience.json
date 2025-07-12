@@ -1,0 +1,56 @@
+[
+  {
+    "id": 1,
+    "company": "George Mason University - College of Science",
+    "position": "Neuromorphic Computing Research Intern",
+    "description": "Developed a physics simulator for autonomous blimp navigation using Pygame and implemented spiking neural networks with Intel's Lava Framework. Created spiked convolutional neural network architectures for neuromorphic computing applications.",
+    "start_date": "June 2022",
+    "end_date": "April 2023",
+    "order": 1
+  },
+  {
+    "id": 2,
+    "company": "Howard-Hughes Medical Institute - Janelia Research Campus",
+    "position": "Machine Learning Researcher",
+    "description": "Developed reinforcement learning algorithms for animal behavior modeling using Unity and Docker environments. Created 3D mesh visualizations and conducted data analysis with Python and Matplotlib, with work presented at Janelia Simulated Bodies Conference (2023).",
+    "start_date": "June 2023",
+    "end_date": "August 2023",
+    "order": 2
+  },
+  {
+    "id": 3,
+    "company": "Duke University Grill Lab",
+    "position": "Research Associate",
+    "description": "Integrated machine learning models into medical imaging software, reducing manual segmentation errors and improving efficiency. Created 3D visualizations from nerve samples using advanced imaging software while managing terabytes of data through cluster computing.",
+    "start_date": "May 2024",
+    "end_date": "July 2024",
+    "order": 3
+  },
+  {
+    "id": 4,
+    "company": "Duke University",
+    "position": "Teaching Assistant (Human Skills for Software Engineering)",
+    "description": "Served as TA and project mentor for three MERN stack development teams, analyzing performance and resolving technical challenges. Hosted regular office hours to support students with complex MongoDB, Express.js, React, and Node.js questions.",
+    "start_date": "August 2024",
+    "end_date": "January 2025",
+    "order": 4
+  },
+  {
+    "id": 5,
+    "company": "Duke University - Electrical and Computer Engineering Dept.",
+    "position": "ECE 110: Intro to Computer Engineering Lab Teaching Assistant",
+    "description": "Implemented interactive lab exercises covering microcontroller programming, digital electronics, and sensor integration with 100% project completion rate. Facilitated group projects and provided technical troubleshooting support for working prototypes.",
+    "start_date": "January 2025",
+    "end_date": "May 2025",
+    "order": 5
+  },
+  {
+    "id": 6,
+    "company": "Qualcomm Technologies Inc.",
+    "position": "Embedded Modem Software Developer",
+    "description": "Developed a 5G modem crash analysis platform achieving 97% reduction in debug time and deployed it globally through Jenkins. Created an AI pipeline for legacy script conversion with 80% time reduction while training multiple tech leads on implementation.",
+    "start_date": "May 2025",
+    "end_date": "August 2025",
+    "order": 6
+  }
+]

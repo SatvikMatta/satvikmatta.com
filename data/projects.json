@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "TriCen - AI-Powered Mental Health Crisis Response System",
+    "description": "An AI-powered mental health crisis response system that uses speech-to-text, GPT-4o Turbo, and text-to-speech to provide empathetic responses while maintaining caller engagement until human operators are available. Features real-time call summaries and secure data handling.",
+    "technology": "Python, OpenAI GPT-4o Turbo, Twilio API, JavaScript, Real-time Processing",
+    "github_url": "https://github.com/seunghjin/TriCen",
+    "live_url": ""
+  },
+  {
+    "id": 2,
+    "title": "Fire Sentry - Wildfire Prediction System",
+    "description": "A state-of-the-art machine learning model using PyTorch and satellite data for accurate wildfire prediction in the United States. Integrated with ArcGIS and Google Places APIs for enhanced geospatial capabilities with an intuitive Django web interface.",
+    "technology": "Python, PyTorch, Django, ArcGIS API, Google Places API, Machine Learning",
+    "github_url": "https://github.com/themoonwalker1/Fire-Sentry",
+    "live_url": ""
+  }
+]

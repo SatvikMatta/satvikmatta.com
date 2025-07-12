@@ -1,0 +1,33 @@
+runtime: python311
+
+entrypoint: gunicorn --bind 0.0.0.0:$PORT website.wsgi:application
+
+# entrypoint: |
+#   /bin/bash -c "
+#   python manage.py migrate &&
+#   python populate_real_data.py &&
+#   gunicorn --bind 0.0.0.0:$PORT website.wsgi:application
+#   "
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: "website.settings"
+  DEBUG: "False"
+  SECRET_KEY: [API_KEY_HERE]
+
+automatic_scaling:
+  # Configures automatic scaling for your service.
+  # max_instances: Limits the maximum number of instances for your service.
+  max_instances: 5
+
+handlers:
+# This handler serves static files (CSS, JS, images) from your 'staticfiles' directory.
+# The URL regex '/static/(.*)' captures any path after '/static/' into '\1'.
+# 'static_files: staticfiles/\1' maps that captured path to the 'staticfiles' directory.
+- url: /static/(.*)
+  static_files: staticfiles/\1
+  upload: staticfiles/.* # This regex tells App Engine which files to upload for this handler
+
+# This handler routes all other requests that haven't been matched by previous handlers
+# (like static files) to your Django application.
+- url: /.*
+  script: auto # 'auto' tells App Engine to use the entrypoint defined above
