@@ -14,5 +14,13 @@
     "technology": "Python, PyTorch, Django, ArcGIS API, Google Places API, Machine Learning",
     "github_url": "https://github.com/themoonwalker1/Fire-Sentry",
     "live_url": ""
+  },
+  {
+    "id": 3,
+    "title": "Focus Assist - AI-Powered Productivity Tool",
+    "description": "A Pomodoro timer with AI-powered focus tracking designed for Snapdragon X Elite laptops using local NPU processing. Features customizable work/break intervals, task management with progress tracking, and a clean terminal interface with progress bars. Built with thread-safe architecture and integrates with AnythingLLM for AI capabilities using OpenAI-Clip models from Qualcomm AI Hub.",
+    "technology": "Python, ONNX Runtime, Qualcomm AI Hub, AnythingLLM API, OpenAI-Clip Models, Jupyter Notebook",
+    "github_url": "https://github.com/SatvikMatta/HaQathon",
+    "live_url": ""
   }
 ]

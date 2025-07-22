@@ -48,7 +48,7 @@
     "id": 6,
     "company": "Qualcomm Technologies Inc.",
     "position": "Embedded Modem Software Developer",
-    "description": "Developed a 5G modem crash analysis platform achieving 97% reduction in debug time and deployed it globally through Jenkins. Created an AI pipeline for legacy script conversion with 80% time reduction while training multiple tech leads on implementation.",
+    "description": "Developed a web debug platform for analyzing 5G modem crashes with an estimated 97% reduction in debug time, gaining expertise in modem data pathways. Deployed platform across the world through Jenkins, reducing debug time by 25%. Curated an AI pipeline to convert legacy analyzer scripts causing an estimated 80% reduction in conversion time per script. Trained multiple team members on new platform implementation and AI-powered script conversion methodologies, enabling team adoption the debug platform.",
     "start_date": "May 2025",
     "end_date": "August 2025",
     "order": 6
